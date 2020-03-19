@@ -1,10 +1,10 @@
 const Caller = require("./Caller.js");
 
 const [evalreg, namedreg, anonymousreg, notnamedreg] = [
-	/at eval \(eval at ([^(]+) \(([^?]+):(\d+):(\d+)\),? ?(?:[^:]+:\d+:\d+)?\)/g,
-	/at (async)? ?(.[^(]*)? \((.[^(]*):(\d+):(\d+)\)/g,
-	/at (.*)? ?\((<anonymous>)\)/g,
-	/at (.[^(]*):(\d+):(\d+)/g
+	/at eval \(eval at ([\w_.<>]*) \(([^*?"<>]*):(\d+):(\d+)\),? ?(?:[^:]+:\d+:\d+)?\)/,
+	/at (async)? ?([\w_.<>]+)? \(([^*?"<>]*):(\d+):(\d+)\)/,
+	/at (.[\w_.<>]*)? ?\((<anonymous>)\)/,
+	/at ([^*?"<>]*):(\d+):(\d+)/
 ];
 
 class BackTracker {
@@ -15,7 +15,7 @@ class BackTracker {
 		/** @type {string} */
 		const stack = new capture().stack;
 		const split = stack.split("\n");
-		const frames = split.slice(1, split.length).map(item => item.trim());
+		const frames = split.slice(2, split.length).map(item => item.trim());
 		const callers = [];
 		for (const frame of frames) {
 			const test1 = evalreg.exec(frame);
@@ -42,7 +42,7 @@ class BackTracker {
 				continue;
 			}
 		}
-		return callers.slice(1, callers.length);
+		return callers;
 	}
 }
 
