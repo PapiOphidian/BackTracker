@@ -4,6 +4,7 @@ class Caller {
 	 */
 	constructor(details) {
 		this.filename = details.filename;
+		this.async = details.async;
 		this.scope = details.scope;
 		this.line = details.line;
 		this.column = details.column;
