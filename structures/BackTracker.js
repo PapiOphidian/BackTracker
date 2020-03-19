@@ -16,7 +16,6 @@ class BackTracker {
 		const stack = new capture().stack;
 		const split = stack.split("\n");
 		const frames = split.slice(1, split.length).map(item => item.trim());
-		console.log(frames);
 		const callers = [];
 		for (const frame of frames) {
 			const test1 = evalreg.exec(frame);
