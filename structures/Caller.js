@@ -2,11 +2,12 @@ const path = require("path");
 
 class Caller {
 	/**
-	 * @param {{ filename: string, async: boolean, scope: string, line: number, column: number, anonymous: boolean }} details
+	 * @param {{ path: string, async: boolean, scope: string, line: number, column: number, anonymous: boolean }} details
 	 */
 	constructor(details) {
-		this.path = details.filename;
-		this.filename = path.basename(details.filename);
+		this.path = details.path;
+		this.dir = path.dirname(details.path);
+		this.filename = path.basename(details.path);
 		this.async = details.async;
 		this.scope = details.scope;
 		this.line = details.line;
