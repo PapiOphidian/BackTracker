@@ -1,16 +1,18 @@
 {
-  "name": "@amanda/back-tracker",
-  "version": "1.0.0",
+  "name": "backtracker",
+  "version": "2.0.0",
   "description": "Back track in JS code execution and find where a function was called",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "backtrack",
+    "backtracker",
     "back-track",
     "back-tracker",
     "back"
   ],
   "author": "PapiOphidian",
-  "license": "ISC"
+  "license": "MIT"
 }

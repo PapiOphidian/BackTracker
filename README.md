@@ -16,11 +16,11 @@ If you would like to contribute and modify the regular expressions, please open 
 
 ## test.js
 ```js
-const BackTracker = require("@amanda/back-tracker").BackTracker;
+const BackTracker = require("backtracker").BackTracker;
 
 function epic() {
 	console.log("Okay. This is epic.");
-	console.log(BackTracker.calledBy));
+	console.log(BackTracker.caller));
 }
 
 module.exports = epic;
