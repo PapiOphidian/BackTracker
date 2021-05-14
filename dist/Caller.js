@@ -2,8 +2,6 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Caller = void 0;
 const path_1 = __importDefault(require("path"));
 class Caller {
     constructor(details) {
@@ -21,5 +19,4 @@ class Caller {
         return this.filename;
     }
 }
-exports.Caller = Caller;
-//# sourceMappingURL=Caller.js.map
+module.exports = Caller;

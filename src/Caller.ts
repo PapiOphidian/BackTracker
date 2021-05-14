@@ -1,6 +1,6 @@
 import path from "path";
 
-export class Caller {
+class Caller {
 	public path: string;
 	public dir: string;
 	public filename: string;
@@ -22,7 +22,10 @@ export class Caller {
 		this.anonymous = details.anonymous;
 		this.parent = null;
 	}
+
 	public toString() {
 		return this.filename;
 	}
 }
+
+export = Caller;

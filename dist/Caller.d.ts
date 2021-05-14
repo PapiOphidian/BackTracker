@@ -1,4 +1,4 @@
-export declare class Caller {
+declare class Caller {
     path: string;
     dir: string;
     filename: string;
@@ -18,3 +18,4 @@ export declare class Caller {
     });
     toString(): string;
 }
+export = Caller;

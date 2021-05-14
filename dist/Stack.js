@@ -1,6 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Stack = void 0;
 class Stack extends Array {
     constructor() {
         super();
@@ -12,5 +10,4 @@ class Stack extends Array {
         return this[this.length - 1] || null;
     }
 }
-exports.Stack = Stack;
-//# sourceMappingURL=Stack.js.map
+module.exports = Stack;
