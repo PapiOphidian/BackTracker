@@ -20,7 +20,7 @@ const BackTracker = require("backtracker").BackTracker;
 
 function epic() {
 	console.log("Okay. This is epic.");
-	console.log(BackTracker.caller));
+	console.log(BackTracker.stack.first));
 }
 
 module.exports = epic;
@@ -40,7 +40,38 @@ notEpic("Not epic at all");
 
 starting index.js logs the following
 ```
+C:\Users\papi\Documents\GitHub\BackTracker>node example/index.js
 Not epic at all
 Okay. This is epic.
-(and a few instances of Caller with relevant stack information)
+Caller {
+  path: 'C:\\Users\\papi\\Documents\\GitHub\\BackTracker\\example\\index.js',
+  dir: 'C:\\Users\\papi\\Documents\\GitHub\\BackTracker\\example',
+  filename: 'index.js',
+  async: false,
+  scope: undefined,
+  line: 5,
+  column: 2,
+  anonymous: false,
+  parent: Caller {
+    path: 'C:\\Users\\papi\\Documents\\GitHub\\BackTracker\\example\\index.js',
+    dir: 'C:\\Users\\papi\\Documents\\GitHub\\BackTracker\\example',
+    filename: 'index.js',
+    async: false,
+    scope: undefined,
+    line: 8,
+    column: 1,
+    anonymous: false,
+    parent: Caller {
+      path: 'internal/modules/cjs/loader.js',
+      dir: 'internal/modules/cjs',
+      filename: 'loader.js',
+      async: false,
+      scope: undefined,
+      line: 936,
+      column: 30,
+      anonymous: false,
+      parent: [Caller]
+    }
+  }
+}
 ```

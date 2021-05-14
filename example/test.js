@@ -1,8 +1,8 @@
-const BackTracker = require("../index.js").BackTracker;
+const BackTracker = require("../dist/index.js").BackTracker;
 
 function epic() {
 	console.log("Okay. This is epic.");
-	console.log(BackTracker.caller);
+	console.log(BackTracker.stack.first);
 }
 
 module.exports = epic;
