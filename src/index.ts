@@ -13,7 +13,7 @@ class BackTracker {
 	public parent: Caller;
 
 	public constructor() {
-		this.parent = BackTracker.stack.first;
+		this.parent = BackTracker.stack.first();
 	}
 
 	public static get stack() {
@@ -72,4 +72,4 @@ export = {
 	BackTracker,
 	Caller,
 	Stack
-}
+};
