@@ -20,7 +20,7 @@ const BackTracker = require("backtracker").BackTracker;
 
 function epic() {
 	console.log("Okay. This is epic.");
-	console.log(BackTracker.stack.first));
+	console.log(BackTracker.stack.first()));
 }
 
 module.exports = epic;

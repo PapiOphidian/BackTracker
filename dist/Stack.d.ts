@@ -1,6 +1,6 @@
 declare class Stack extends Array<import("./Caller")> {
     constructor();
-    get first(): import("./Caller");
-    get last(): import("./Caller");
+    first(amount?: number): import("./Caller") | Array<import("./Caller")>;
+    last(amount?: number): import("./Caller") | Array<import("./Caller")>;
 }
 export = Stack;
