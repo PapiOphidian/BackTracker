@@ -4,6 +4,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const path_1 = __importDefault(require("path"));
 class Caller {
+    path;
+    dir;
+    filename;
+    async;
+    scope;
+    line;
+    column;
+    anonymous;
+    parent;
     constructor(details) {
         this.path = details.path;
         this.dir = path_1.default.dirname(details.path);
