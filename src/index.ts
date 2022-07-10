@@ -31,6 +31,12 @@ class BackTracker {
 		for (const frame of frames) {
 			const test1 = evalreg.exec(frame);
 
+			const test6 = filereg.exec(frame);
+			if (test6 && test6.length > 0) {
+				callers.push(new Caller({ path: test6[2], async: !!test6[1], scope: "file", line: Number(test6[3]), column: Number(test6[4]), anonymous: false }));
+				continue;
+			}
+
 			if (test1 && test1.length > 0) {
 				callers.push(new Caller({ path: test1[2], async: false, scope: test1[1], line: Number(test1[3]), column: Number(test1[4]), anonymous: !!test1[5] }));
 				continue;
@@ -57,12 +63,6 @@ class BackTracker {
 			const test5 = notnamedreg.exec(frame);
 			if (test5 && test5.length > 0) {
 				callers.push(new Caller({ path: test5[1], async: false, scope: "root", line: Number(test5[2]), column: Number(test5[3]), anonymous: false }));
-				continue;
-			}
-
-			const test6 = filereg.exec(frame);
-			if (test6 && test6.length > 0) {
-				callers.push(new Caller({ path: test6[2], async: !!test6[1], scope: "file", line: Number(test6[3]), column: Number(test6[4]), anonymous: false }));
 				continue;
 			}
 		}
