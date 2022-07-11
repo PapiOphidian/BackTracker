@@ -7,13 +7,13 @@ Some developers may find it necessary to know where the function is being called
 In JavaScript, you can make use of Error stacks to peek back into code execution. This project makes use of Error stacks and analyses individual stack frames and tries it's best to pick apart the scope, absolute path of file, line and column of each frame via regular expressions so that this info is available in code rather than requiring a user to analyse the stack.
 
 # Contributing
-If you would like to contribute and modify the regular expressions, please open a Pull Request and I will test code changes against a dataset of stack frames including stack frames which you might want to add support for.
+If you would like to contribute and modify the regular expressions, please open a Pull Request and I will test code changes against a dataset of stack frames I have and including stack frames which you might want to add support for.
 
 # Examples
 
 ## test.js
 ```js
-const BackTracker = require("backtracker").BackTracker;
+const { BackTracker } = require("backtracker");
 
 function epic() {
 	console.log("Okay. This is epic.");
@@ -35,39 +35,38 @@ function notEpic(pog) {
 notEpic("Not epic at all");
 ```
 
-starting index.js logs the following
-```
-C:\Users\papi\Documents\GitHub\BackTracker>node example/index.js
-Not epic at all
-Okay. This is epic.
-Caller {
+Output example:
+```js
+'Not epic at all'
+'Okay. This is epic.'
+Frame {
   path: 'C:\\Users\\papi\\Documents\\GitHub\\BackTracker\\example\\index.js',
   dir: 'C:\\Users\\papi\\Documents\\GitHub\\BackTracker\\example',
   filename: 'index.js',
   async: false,
-  scope: undefined,
+  scope: 'notEpic',
   line: 5,
   column: 2,
   anonymous: false,
-  parent: Caller {
+  parent: Frame {
     path: 'C:\\Users\\papi\\Documents\\GitHub\\BackTracker\\example\\index.js',
     dir: 'C:\\Users\\papi\\Documents\\GitHub\\BackTracker\\example',
     filename: 'index.js',
     async: false,
-    scope: undefined,
+    scope: 'Object.<anonymous>',
     line: 8,
     column: 1,
-    anonymous: false,
-    parent: Caller {
-      path: 'internal/modules/cjs/loader.js',
-      dir: 'internal/modules/cjs',
-      filename: 'loader.js',
+    anonymous: true,
+    parent: Frame {
+      path: 'node:internal/modules/cjs/loader',
+      dir: 'node:internal/modules/cjs',
+      filename: 'loader',
       async: false,
-      scope: undefined,
-      line: 936,
-      column: 30,
+      scope: 'Module._compile',
+      line: 1095,
+      column: 14,
       anonymous: false,
-      parent: [Caller]
+      parent: [Frame]
     }
   }
 }

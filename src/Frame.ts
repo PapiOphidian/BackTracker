@@ -1,6 +1,6 @@
 import path from "path";
 
-class Caller {
+class Frame {
 	public path: string;
 	public dir: string;
 	public filename: string;
@@ -9,7 +9,7 @@ class Caller {
 	public line: number;
 	public column: number;
 	public anonymous: boolean;
-	public parent: Caller | null;
+	public parent: Frame | null;
 
 	public constructor(details: { path: string; async: boolean; scope: string; line: number; column: number; anonymous: boolean; }) {
 		this.path = details.path;
@@ -28,4 +28,4 @@ class Caller {
 	}
 }
 
-export = Caller;
+export = Frame;
