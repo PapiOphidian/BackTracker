@@ -3,7 +3,7 @@ import Stack from "./Stack";
 
 const [evalreg, anonymousreg, pallreg, scopereg] = [
 	/^at eval \(eval a?t? ?([\w_\.<>]+)? ?\((?:file\:\/\/\/)?([^*"\)]+):(\d+):(\d+)\),? ?([\w_\.<>]+)?:\d+:\d+\)$/, // expression for global.eval
-	/^at ([\w_\.<>]+)? ?\(?<anonymous>\)?$/, // expression for anonymous scopes
+	/^at ([\w_\.<>]+)? ?\(?(<anonymous>)\)?$/, // expression for anonymous scopes
 	/^at (?:async)? ?Promise.all \(index (\d+)\)$/, // expression for Promise.all
 	/^at (async)? ?((?!\bfile\b|[A-Z]:)[\w_\.<> ]+)? ?(?:\[as ([\w_\.<> ]+)\])? ?\(?(?:file\:\/\/\/)?([^*"]+):(\d+):(\d+)\)?$/, // expression for named and unnamed scopes including functions that were renamed as well as getters
 ];
