@@ -17,10 +17,10 @@ class BackTracker {
 
 		const s = new Stack()
 
-		let isFirst = true;
+		let index = 0;
 		for (const c of es) {
-			if (isFirst) { // Ignore BackTracker's stack frame
-				isFirst = false;
+			if (index < 2) { // Ignore BackTracker's stack frame and the "current frame" aka where BackTracker.stack was called
+				index++
 				continue;
 			}
 			const scope = (c as unknown as { isPromiseAll(): boolean }).isPromiseAll()
@@ -39,6 +39,7 @@ class BackTracker {
 			});
 
 			s.push(frame);
+			index++;
 		}
 
 		for (const f of s) {
