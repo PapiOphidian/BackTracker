@@ -1,6 +1,6 @@
 {
   "name": "backtracker",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "description": "Back track in JS code execution and find where a function was called",
   "main": "dist/index",
   "types": "dist/index.d.ts",
