@@ -132,7 +132,5 @@ export function getStack(): Stack {
 		s.push(frame);
 	}
 
-	console.log(s);
-
 	return s;
 }
