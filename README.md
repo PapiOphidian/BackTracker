@@ -9,11 +9,11 @@ In JavaScript, you can make use of Error stacks to peek back into code execution
 
 ## test.js
 ```js
-const { BackTracker } = require("backtracker");
+const { getStack } = require("backtracker");
 
 function epic() {
 	console.log("Okay. This is epic.");
-	console.log(BackTracker.stack.first()));
+	console.log(getStack().first());
 }
 
 module.exports = epic;
@@ -35,78 +35,118 @@ Output example:
 ```js
 'Not epic at all'
 'Okay. This is epic.'
-Frame {
-  path: 'A:\\Windows\\Documents\\GitHub\\BackTracker\\example\\index.js',
+{
+  absolute: 'A:\\Windows\\Documents\\GitHub\\BackTracker\\example\\index.js',
   dir: 'A:\\Windows\\Documents\\GitHub\\BackTracker\\example',
-  filename: 'index.js',
+  basename: 'index.js',
   async: false,
   scope: 'notEpic',
   line: 5,
   column: 2,
   anonymous: false,
-  parent: Frame {
-    path: 'A:\\Windows\\Documents\\GitHub\\BackTracker\\example\\index.js',
+  srcAbsolute: 'A:\\Windows\\Documents\\GitHub\\BackTracker\\example\\index.js',
+  srcDir: 'A:\\Windows\\Documents\\GitHub\\BackTracker\\example',
+  srcBasename: 'index.js',
+  srcLine: 5,
+  srcColumn: 2,
+  parent: {
+    absolute: 'A:\\Windows\\Documents\\GitHub\\BackTracker\\example\\index.js',
     dir: 'A:\\Windows\\Documents\\GitHub\\BackTracker\\example',
-    filename: 'index.js',
+    basename: 'index.js',
     async: false,
     scope: '<anonymous>',
     line: 8,
     column: 1,
     anonymous: true,
-    parent: Frame {
-      path: 'node:internal/modules/cjs/loader',
+    srcAbsolute: 'A:\\Windows\\Documents\\GitHub\\BackTracker\\example\\index.js',
+    srcDir: 'A:\\Windows\\Documents\\GitHub\\BackTracker\\example',
+    srcBasename: 'index.js',
+    srcLine: 8,
+    srcColumn: 1,
+    parent: {
+      absolute: 'node:internal/modules/cjs/loader',
       dir: 'node:internal/modules/cjs',
-      filename: 'loader',
+      basename: 'loader',
       async: false,
       scope: 'Module._compile',
-      line: 1120,
+      line: 1241,
       column: 14,
       anonymous: false,
-      parent: Frame {
-        path: 'node:internal/modules/cjs/loader',
+      srcAbsolute: 'node:internal/modules/cjs/loader',
+      srcDir: 'node:internal/modules/cjs',
+      srcBasename: 'loader',
+      srcLine: 1241,
+      srcColumn: 14,
+      parent: {
+        absolute: 'node:internal/modules/cjs/loader',
         dir: 'node:internal/modules/cjs',
-        filename: 'loader',
+        basename: 'loader',
         async: false,
         scope: 'Module._extensions..js',
-        line: 1174,
+        line: 1295,
         column: 10,
         anonymous: false,
-        parent: Frame {
-          path: 'node:internal/modules/cjs/loader',
+        srcAbsolute: 'node:internal/modules/cjs/loader',
+        srcDir: 'node:internal/modules/cjs',
+        srcBasename: 'loader',
+        srcLine: 1295,
+        srcColumn: 10,
+        parent: {
+          absolute: 'node:internal/modules/cjs/loader',
           dir: 'node:internal/modules/cjs',
-          filename: 'loader',
+          basename: 'loader',
           async: false,
           scope: 'Module.load',
-          line: 998,
+          line: 1091,
           column: 32,
           anonymous: false,
-          parent: Frame {
-            path: 'node:internal/modules/cjs/loader',
+          srcAbsolute: 'node:internal/modules/cjs/loader',
+          srcDir: 'node:internal/modules/cjs',
+          srcBasename: 'loader',
+          srcLine: 1091,
+          srcColumn: 32,
+          parent: {
+            absolute: 'node:internal/modules/cjs/loader',
             dir: 'node:internal/modules/cjs',
-            filename: 'loader',
+            basename: 'loader',
             async: false,
             scope: 'Module._load',
-            line: 839,
+            line: 938,
             column: 12,
             anonymous: false,
-            parent: Frame {
-              path: 'node:internal/modules/run_main',
+            srcAbsolute: 'node:internal/modules/cjs/loader',
+            srcDir: 'node:internal/modules/cjs',
+            srcBasename: 'loader',
+            srcLine: 938,
+            srcColumn: 12,
+            parent: {
+              absolute: 'node:internal/modules/run_main',
               dir: 'node:internal/modules',
-              filename: 'run_main',
+              basename: 'run_main',
               async: false,
               scope: 'executeUserEntryPoint',
-              line: 81,
+              line: 83,
               column: 12,
               anonymous: false,
-              parent: Frame {
-                path: 'node:internal/main/run_main_module',
+              srcAbsolute: 'node:internal/modules/run_main',
+              srcDir: 'node:internal/modules',
+              srcBasename: 'run_main',
+              srcLine: 83,
+              srcColumn: 12,
+              parent: {
+                absolute: 'node:internal/main/run_main_module',
                 dir: 'node:internal/main',
-                filename: 'run_main_module',
+                basename: 'run_main_module',
                 async: false,
                 scope: '<anonymous>',
-                line: 17,
+                line: 23,
                 column: 47,
                 anonymous: true,
+                srcAbsolute: 'at node:internal/main/run_main_module',
+                srcDir: 'at node:internal/main',
+                srcBasename: 'run_main_module',
+                srcLine: 23,
+                srcColumn: 47,
                 parent: null
               }
             }

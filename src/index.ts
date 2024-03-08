@@ -126,10 +126,14 @@ export function getStack(): Stack {
 			srcBasename: isNode ? path!.basename(srcAbsolute) : srcAbsolute,
 			srcLine,
 			srcColumn,
-			parent: s.last()
+			parent: null
 		}
 
 		s.push(frame);
+	}
+
+	for (let index = 0; index < s.length; index++) {
+		s[index].parent = s[index + 1] || null;
 	}
 
 	return s;
