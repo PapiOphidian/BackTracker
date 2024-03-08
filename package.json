@@ -5,7 +5,7 @@
   "main": "dist/index",
   "types": "dist/index.d.ts",
   "scripts": {
-    "compile": "tsc -p ."
+    "compile": "tsup src/index.ts --clean --dts --sourcemap --format cjs --target node14 --minify-whitespace --minify-syntax --treeshake"
   },
   "repository": "git://github.com/PapiOphidian/BackTracker.git",
   "keywords": [
@@ -19,6 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.25",
+    "tsup": "^8.0.2",
     "typescript": "^5.4.2"
   },
   "files": [

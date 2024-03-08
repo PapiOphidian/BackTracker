@@ -4,6 +4,7 @@ const isNode = typeof process === "object";
 let path: typeof import("path") | undefined = isNode ? module.require("path") : undefined;
 
 export interface Frame {
+	unparsed: string;
 	absolute: string;
 	dir: string;
 	basename: string;
@@ -116,6 +117,7 @@ export function getStack(): Stack {
 		const srcAbsolute = match?.[1] ?? absolute;
 
 		const frame: Frame = {
+			unparsed: stringFrames[index],
 			absolute,
 			dir,
 			basename,

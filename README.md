@@ -36,6 +36,7 @@ Output example:
 'Not epic at all'
 'Okay. This is epic.'
 {
+  unparsed: 'at notEpic (A:\\Windows\\Documents\\GitHub\\BackTracker\\example\\index.js:5:2)',
   absolute: 'A:\\Windows\\Documents\\GitHub\\BackTracker\\example\\index.js',
   dir: 'A:\\Windows\\Documents\\GitHub\\BackTracker\\example',
   basename: 'index.js',
@@ -50,6 +51,7 @@ Output example:
   srcLine: 5,
   srcColumn: 2,
   parent: {
+    unparsed: 'at Object.<anonymous> (A:\\Windows\\Documents\\GitHub\\BackTracker\\example\\index.js:8:1)',
     absolute: 'A:\\Windows\\Documents\\GitHub\\BackTracker\\example\\index.js',
     dir: 'A:\\Windows\\Documents\\GitHub\\BackTracker\\example',
     basename: 'index.js',
@@ -64,6 +66,7 @@ Output example:
     srcLine: 8,
     srcColumn: 1,
     parent: {
+      unparsed: 'at Module._compile (node:internal/modules/cjs/loader:1241:14)',
       absolute: 'node:internal/modules/cjs/loader',
       dir: 'node:internal/modules/cjs',
       basename: 'loader',
@@ -78,6 +81,7 @@ Output example:
       srcLine: 1241,
       srcColumn: 14,
       parent: {
+        unparsed: 'at Module._extensions..js (node:internal/modules/cjs/loader:1295:10)',
         absolute: 'node:internal/modules/cjs/loader',
         dir: 'node:internal/modules/cjs',
         basename: 'loader',
@@ -92,6 +96,7 @@ Output example:
         srcLine: 1295,
         srcColumn: 10,
         parent: {
+          unparsed: 'at Module.load (node:internal/modules/cjs/loader:1091:32)',
           absolute: 'node:internal/modules/cjs/loader',
           dir: 'node:internal/modules/cjs',
           basename: 'loader',
@@ -106,6 +111,7 @@ Output example:
           srcLine: 1091,
           srcColumn: 32,
           parent: {
+            unparsed: 'at Module._load (node:internal/modules/cjs/loader:938:12)',
             absolute: 'node:internal/modules/cjs/loader',
             dir: 'node:internal/modules/cjs',
             basename: 'loader',
@@ -120,6 +126,7 @@ Output example:
             srcLine: 938,
             srcColumn: 12,
             parent: {
+              unparsed: 'at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:83:12)',
               absolute: 'node:internal/modules/run_main',
               dir: 'node:internal/modules',
               basename: 'run_main',
@@ -134,6 +141,7 @@ Output example:
               srcLine: 83,
               srcColumn: 12,
               parent: {
+                unparsed: 'at node:internal/main/run_main_module:23:47',
                 absolute: 'node:internal/main/run_main_module',
                 dir: 'node:internal/main',
                 basename: 'run_main_module',
