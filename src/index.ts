@@ -67,6 +67,10 @@ export function getStack(): Stack {
 
 	// Some engines don't support Error.prepareStackTrace like FireFox
 	const root = typeof callSites === "string" ? stringFrames : callSites;
+
+	// @ts-expect-error FOR SOME REASON TS DOESNT LIKE IT WHEN IT'S | null
+	let lastFrame: Frame = null
+
 	for (let index = 0; index < root.length; index++) {
 		if (index < 2) continue; // Ignore BackTracker's stack frame and the "current frame" aka where BackTracker.stack was called
 
@@ -129,11 +133,10 @@ export function getStack(): Stack {
 			parent: null
 		}
 
-		s.push(frame);
-	}
+		if (lastFrame) lastFrame.parent = frame;
+		lastFrame = frame;
 
-	for (let index = 0; index < s.length; index++) {
-		s[index].parent = s[index + 1] || null;
+		s.push(frame);
 	}
 
 	return s;
