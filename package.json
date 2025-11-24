@@ -1,6 +1,6 @@
 {
   "name": "backtracker",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Back track in JS code execution and find where a function was called",
   "main": "dist/index",
   "types": "dist/index.d.ts",
@@ -18,9 +18,9 @@
   "author": "PapiOphidian",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^20.11.25",
-    "tsup": "^8.0.2",
-    "typescript": "^5.4.2"
+    "@types/node": "^24.10.1",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
   },
   "files": [
     "dist",

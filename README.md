@@ -1,10 +1,18 @@
 # BackTracker
-Back track in JS code execution and find where a function was called
+Back track in JS code execution and find where a function was called.
 
 Some developers may find it necessary to know where the function is being called from for whatever reason. This can lead to some creative uses such as require-like file resolution where it takes the current file's path into consideration.
 
+This module should work in both NodeJS and WebJS. Other flavors of JS have not been tested or considered.
+
 # How it works
 In JavaScript, you can make use of Error stacks to peek back into code execution. This project abuses Error stacks and Error formatting. Previous versions used ugly and long regular expressions which were not infallible.
+
+## Special Notes
+Since v5, getStack allows you to pass in your own Error to have it generate a Stack for you to analyze. This functionality comes at a caveat; BackTracker makes use of Error.prepareStackTrace [see here.](https://v8.dev/docs/stack-trace-api#customizing-stack-traces) Error stacks are not generated when the Error was created, but when the stack property is accessed. Error.prepareStackTrace is only called once for the error when the stack property is accessed and then the error stack is considered "baked". When they are generated, they use the current function that's assigned to Error.prepareStackTrace. BackTracker gets a reference to the prepareStackTrace function when it's called and replaces it with its own that allows it to get the raw CallSites and then puts the old function back directly after.
+
+If you pass in an Error who's stack was already "baked" then BackTracker cannot get the raw CallSites it needs and you may end up with useless info. As such, you must supply BackTracker with an Error that hasn't had its stack "baked". You can access the stack with no consequence afterwards just fine though even if you use your own prepareStackTrace function. BackTracker will also use the most up to date Error.prepareStackTrace function for subsequent calls.
+
 # Examples
 
 ## test.js
