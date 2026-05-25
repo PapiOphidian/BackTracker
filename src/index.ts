@@ -1,4 +1,4 @@
-const filenameRegex = /(?:(?:@)|(?:file:\/\/\/))?([^*"()]+):(\d+):(\d+)/;
+const filenameRegex = /(?:at )?(?:(?:@)|(?:file:\/\/\/))?([^*"()]+):(\d+):(\d+)/;
 
 const isNode = typeof process === "object";
 let path: typeof import("path") | undefined = isNode ? module.require("path") : undefined;
